@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{15EDE09B-C161-4617-878D-BE2FB249AA64}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>LibLeapDLL</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>C:\LeapSDK\include;C:\pthreads\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>pthreadVC2.lib;pthreadVCE2.lib;pthreadVSE2.lib;Leap.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\pthreads\lib\x86;C:\LeapSDK\lib\x86</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileListener.h" />
+    <ClInclude Include="includes.h" />
+    <ClInclude Include="LeapListener.h" />
+    <ClInclude Include="LeapProcess.h" />
+    <ClInclude Include="Learning.h" />
+    <ClInclude Include="LibLeapDLL.h" />
+    <ClInclude Include="LMpre.h" />
+    <ClInclude Include="LMRecorder.h" />
+    <ClInclude Include="Model\GestureFinger.h" />
+    <ClInclude Include="Model\GestureFrame.h" />
+    <ClInclude Include="Model\GestureHand.h" />
+    <ClInclude Include="Model\RecognitionModule\TestingClassResult.h" />
+    <ClInclude Include="Model\RecognitionModule\TestingFrame.h" />
+    <ClInclude Include="Model\RecognitionModule\TestingResult.h" />
+    <ClInclude Include="Model\RecognitionModule\TrainingClassDataset.h" />
+    <ClInclude Include="Model\RecognitionModule\TrainingClassResult.h" />
+    <ClInclude Include="Model\RecognitionModule\TrainingResult.h" />
+    <ClInclude Include="Model\Vertex.h" />
+    <ClInclude Include="RecognitionConfiguration\TestingFingerDiffConf.h" />
+    <ClInclude Include="RecognitionConfiguration\TestingStaticRecConf.h" />
+    <ClInclude Include="RecognitionConfiguration\TrainingFingerDiffConf.h" />
+    <ClInclude Include="RecognitionConfiguration\TrainingStaticRecConf.h" />
+    <ClInclude Include="RecognitionModule\AbstractSvmModule.h" />
+    <ClInclude Include="RecognitionModule\AbstractSvmModuleBase.h" />
+    <ClInclude Include="RecognitionModule\FingerDiff.h" />
+    <ClInclude Include="RecognitionModule\StaticRec.h" />
+    <ClInclude Include="RecognitionModule\SVMclassificator.h" />
+    <ClInclude Include="RecognizedGesture.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StaticSettings.h" />
+    <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="StorageDriver\BinaryFileStorageDriver.h" />
+    <ClInclude Include="StorageDriver\GestureStorageDriver.h" />
+    <ClInclude Include="svm.h" />
+    <ClInclude Include="Types\ConfExt.h" />
+    <ClInclude Include="Types\StaticRecFeatureVersion.h" />
+    <ClInclude Include="Util\FileWriterUtil.h" />
+    <ClInclude Include="Util\LogUtil.h" />
+    <ClInclude Include="Util\PathUtil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileListener.cpp" />
+    <ClCompile Include="LeapListener.cpp" />
+    <ClCompile Include="LeapProcess.cpp" />
+    <ClCompile Include="Learning.cpp" />
+    <ClCompile Include="LibLeapDLL.cpp" />
+    <ClCompile Include="LMpre.cpp" />
+    <ClCompile Include="LMRecorder.cpp" />
+    <ClCompile Include="Model\GestureFinger.cpp" />
+    <ClCompile Include="Model\GestureFrame.cpp" />
+    <ClCompile Include="Model\GestureHand.cpp" />
+    <ClCompile Include="Model\RecognitionModule\TestingClassResult.cpp" />
+    <ClCompile Include="Model\RecognitionModule\TestingFrame.cpp" />
+    <ClCompile Include="Model\RecognitionModule\TestingResult.cpp" />
+    <ClCompile Include="Model\RecognitionModule\TrainingClassDataset.cpp" />
+    <ClCompile Include="Model\RecognitionModule\TrainingClassResult.cpp" />
+    <ClCompile Include="Model\RecognitionModule\TrainingResult.cpp" />
+    <ClCompile Include="Model\Vertex.cpp" />
+    <ClCompile Include="RecognitionConfiguration\TestingFingerDiffConf.cpp" />
+    <ClCompile Include="RecognitionConfiguration\TestingStaticRecConf.cpp" />
+    <ClCompile Include="RecognitionConfiguration\TrainingFingerDiffConf.cpp" />
+    <ClCompile Include="RecognitionConfiguration\TrainingStaticRecConf.cpp" />
+    <ClCompile Include="RecognitionModule\AbstractSvmModuleBase.cpp" />
+    <ClCompile Include="RecognitionModule\FingerDiff.cpp" />
+    <ClCompile Include="RecognitionModule\StaticRec.cpp" />
+    <ClCompile Include="RecognitionModule\SVMclassificator.cpp" />
+    <ClCompile Include="RecognizedGesture.cpp" />
+    <ClCompile Include="StaticSettings.cpp" />
+    <ClCompile Include="Stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StorageDriver\BinaryFileStorageDriver.cpp" />
+    <ClCompile Include="svm.cpp" />
+    <ClCompile Include="Types\ConfExt.cpp" />
+    <ClCompile Include="Util\FileWriterUtil.cpp" />
+    <ClCompile Include="Util\LogUtil.cpp" />
+    <ClCompile Include="Util\PathUtil.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\main.cpp~" />
+    <None Include="main.cpp~" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
